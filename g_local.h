@@ -48,7 +48,7 @@
 #define	FL_TEAMSLAVE			0x00000400	// not the first on the team
 #define FL_NO_KNOCKBACK			0x00000800
 #define FL_POWER_ARMOR			0x00001000	// power armor (if any) is active
-#define FL_DEATHSDOOR			0x00002000  // health below 1 but still alive
+#define FL_DEATHSDOOR			0x00002000  // health went below 0 but stayed at 1
 #define FL_RESPAWN				0x80000000	// used for item respawning
 
 

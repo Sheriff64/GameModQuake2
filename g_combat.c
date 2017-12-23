@@ -480,17 +480,18 @@ void T_Damage (edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t dir,
 			if ((targ->svflags & SVF_MONSTER) || (client))
 				targ->flags |= FL_NO_KNOCKBACK;
 
-//			if (random() > .75 && client)
-//			{
-//				targ->flags |= FL_DEATHSDOOR;
-//				Use_Quad;
-//				targ->flags &= ~FL_DEATHSDOOR;
-//			}
-//			else
-//			{
-//				Killed (targ, inflictor, attacker, take, point);
-//				return;
-//			}
+			if ((random() * 100) > 10 && client)
+			{
+				targ->health = 1;
+				targ->flags |= FL_DEATHSDOOR;
+				Use_Quad(targ, FindItem("item_quad"));
+				targ->flags &= ~FL_DEATHSDOOR;
+			}
+			else
+			{
+				Killed (targ, inflictor, attacker, take, point);
+				return;
+			}
 		}
 	}
 
